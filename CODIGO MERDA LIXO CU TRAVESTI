@@ -12,12 +12,12 @@ janela = tk.Tk()
 def inserir_cadastro() :
     nome = entry_nome.get()
     endereco = entry_endereco.get()
-    matricula = entry_tipo_matricula.get()
+    matricula = combobox_selecionar_matricula.get()
     data_criacao = dt.datetime.now()
-    data_criacao = dt.datetime.strftime("%d/%m%y %H:%M")
+    data_criacao = data_criacao.strftime("%d/%m%Y %H:%M")
     cadastro = len(lista_cadastro)+1
     cadastro_str = "COD-{}".format(cadastro)
-    lista_cadastro.append((cadastro_str,nome, endereco,lista_matricula,data_criacao))
+    lista_cadastro.append((cadastro_str,nome, matricula, endereco,data_criacao))
 
 
 
@@ -53,7 +53,7 @@ label_email.grid(row=5, column=0, padx = 10, pady = 10, sticky='nswe', columnspa
 entry_email = tk.Entry()
 entry_email.grid(row=5, column=2, padx = 10, pady = 10, sticky='nswe', columnspan=4)
 
-botao_cadastrar = tk.Button(text="CADASTRAR")
+botao_cadastrar = tk.Button(text="CADASTRAR", command=inserir_cadastro())
 botao_cadastrar.grid(row=7, column=0, padx = 10, pady = 10, sticky='nswe', columnspan=20)
 
 
@@ -61,4 +61,3 @@ botao_cadastrar.grid(row=7, column=0, padx = 10, pady = 10, sticky='nswe', colum
 
 
 janela.mainloop()
-
